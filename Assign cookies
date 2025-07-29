@@ -1,0 +1,21 @@
+class Solution {
+    public int findMaximumCookieStudents(int[] Student, int[] Cookie) {
+        Arrays.sort(Student);
+
+        int i = 0; // Pointer for Student
+        int j = 0; // Pointer for Cookie
+
+        int count = 0;
+
+        while (i < Student.length && j < Cookie.length) {
+            if (Cookie[j] >= Student[i]) {
+                count++;
+                i++; // move to next student
+            }
+            j++; // move to next cookie (used or too small)
+        }
+
+        return count;
+
+    }
+}
